@@ -31,8 +31,8 @@ public class InitialTest extends Configs {
    }
    @Test(priority = 2)
    public void loginWithValidCredentialsAsBrokerConnect() {
-      loginPage.getUserEmail().setValue("amantulo@danavero.com");
-      loginPage.getUserPassword().setValue("Luckyma199324");
+      loginPage.getUserEmail().setValue("");
+      loginPage.getUserPassword().setValue("");
       loginPage.getSelectAccountOption().selectOption("Carrier");
       loginPage.getSubmitButton().click();
       mainPage.getWelcomeTitle().shouldHave(text("Welcome"));
