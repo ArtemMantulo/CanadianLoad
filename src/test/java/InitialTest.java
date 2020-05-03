@@ -31,8 +31,8 @@ public class InitialTest extends Configs {
    }
    @Test(priority = 2)
    public void loginWithValidCredentialsAsBrokerConnect() {
-      loginPage.getUserEmail().setValue("");
-      loginPage.getUserPassword().setValue("");
+      loginPage.getUserEmail().setValue(getProperty("user.email"));
+      loginPage.getUserPassword().setValue(getProperty("user.password"));
       loginPage.getSelectAccountOption().selectOption("Carrier");
       loginPage.getSubmitButton().click();
       mainPage.getWelcomeTitle().shouldHave(text("Welcome"));
@@ -42,15 +42,16 @@ public class InitialTest extends Configs {
    public void postCarrierCapacity() {
       open("/my-capacity");
       carrierCapacityPage.getCreateCapacityButton().click();
-      carrierCapacityPage.getOpenDateField().setValue("May 3nd 2020, 1:30 pm");
-      carrierCapacityPage.getCloseDateField().setValue("May 4nd 2020, 1:30 pm");
-      carrierCapacityPage.getEquipment().selectOptionByValue("dryVan");
-      carrierCapacityPage.getLoadType().selectOptionByValue("full");
-      carrierCapacityPage.getOriginCity().setValue("NY city");
-      carrierCapacityPage.getOriginProvince().selectOptionByValue("NY");
-      carrierCapacityPage.getDestinationCity().setValue("Toronto");
-      carrierCapacityPage.getDestinationProvince().selectOptionByValue("NY");
+      carrierCapacityPage.getOpenDateField().setValue(getProperty("open.date"));
+      carrierCapacityPage.getCloseDateField().setValue(getProperty("close.date"));
+      carrierCapacityPage.getEquipment().selectOptionByValue(getProperty("equipment.type"));
+      carrierCapacityPage.getLoadType().selectOptionByValue(getProperty("load.type"));
+      carrierCapacityPage.getOriginCity().setValue(getProperty("origin.city"));
+      carrierCapacityPage.getOriginProvince().selectOptionByValue(getProperty("origin.province"));
+      carrierCapacityPage.getDestinationCity().setValue(getProperty("destination.city"));
+      carrierCapacityPage.getDestinationProvince().selectOptionByValue(getProperty("destination.province"));
       carrierCapacityPage.getSubmitButton().click();
+
       sleep(5000);
    }
 
@@ -69,7 +70,7 @@ public class InitialTest extends Configs {
       {
          openDateText.add(element.getText());
       }
-      assertThat(openDateText, hasSize(3));
-      sleep(20000);
+      assertThat(openDateText, hasSize(12));
+      sleep(10000);
    }
 }

@@ -6,7 +6,7 @@ import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 
-public class DriverManager {
+public class DriverManager extends ConfigProvider {
 
    // private static final Logger LOGGER = Logger.getLogger(DriverManager.class);
 
@@ -17,8 +17,8 @@ public class DriverManager {
         if (url != null) {
             Configuration.baseUrl = url;
         } else {
-            //Configuration.baseUrl = getProperty("app.url");
-            Configuration.baseUrl = "https://dev.thecanadianloadboard.cloud";
+            Configuration.baseUrl = getProperty("app.url");
+
         }
         Configuration.timeout= 40000;
         Configuration.browser = "chrome";

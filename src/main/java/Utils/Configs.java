@@ -11,7 +11,7 @@ import static Utils.DriverManager.setUpDriver;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.page;
 
-public class Configs {
+public class Configs extends ConfigProvider{
     public LoginPage loginPage;
     public MainPage mainPage;
     public CarrierMyCapacityPage carrierCapacityPage;
