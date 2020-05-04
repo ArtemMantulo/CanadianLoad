@@ -1,25 +1,29 @@
 package Utils;
 
 
+import Pages.CarrierMyCapacityPage;
+import Pages.LoginPage;
+import Pages.MainPage;
 import com.codeborne.selenide.Configuration;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.BeforeTest;
+
+import static com.codeborne.selenide.Selenide.open;
 
 
 public class DriverManager extends ConfigProvider {
 
    // private static final Logger LOGGER = Logger.getLogger(DriverManager.class);
 
+
+
+
     public static void setUpDriver() {
 
       //  LOGGER.info("Start chrome driver");
-        String url = System.getenv("URL");
-        if (url != null) {
-            Configuration.baseUrl = url;
-        } else {
-            Configuration.baseUrl = getProperty("app.url");
 
-        }
+        Configuration.baseUrl = getProperty("app.url");
         Configuration.timeout= 40000;
         Configuration.browser = "chrome";
         Configuration.browserSize = "1855x1060";

@@ -11,6 +11,8 @@ import static com.codeborne.selenide.Selenide.$x;
     public class MainPage {
     private SelenideElement
             welcomeTitle = $(".h3.mb-3.font-weight-normal"),
-            companyNameTitle = $(".font-weight-normal>strong");
+            companyNameTitle = $(".font-weight-normal>strong"),
+            accountIcon = $x("//div[@class = \"jss1\"]"),
+            logOutButton = $x("//button/a[text() = \"Logout\"]");
 
 }
